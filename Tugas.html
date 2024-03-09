@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Data Pegawai </title>
+</head>
+<body>
+    <h1 align="center"> Data Pegawai </h1>
+
+<table align="center", border="1", cellpadding="5" cellspacing="5">
+    <thead bgcolor="aqua">
+        <tr>
+            <th>Nama Pegawai</th>
+            <th>Jabatan</th>
+            <th>Status</th>
+            <th>Gaji Pokok</th>
+            <th>Tunjangan Jabatan</th>
+            <th>BPJS</th>
+            <th>Tunjangan Keluarga</th>
+            <th>Total Gaji</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ridwan</td>
+            <td>Manager</td>
+            <td>Menikah</td>
+            <td id="gajiPokok"></td>
+            <td id="tunjanganJabatan"></td>
+            <td id="bpjs"></td>
+            <td id="tunjanganKeluarga"></td>
+            <td id="totalGaji"></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="7" align="right"> Total Gaji</td>
+            <td id="totalGajiFoot"></td>
+        </tr>
+    </tfoot>
+</table>
+
+<script>
+    // Data Pegawai
+    var namaPegawai = "Ridwan";
+    var jabatan = "Manager";
+    var status = "Menikah";
+    var gajiPokok;
+
+    // Gaji Pokok
+    switch (jabatan) {
+        case "Manager":
+            gajiPokok = 15000000;
+            break;
+        case "Asisten Manager":
+            gajiPokok = 10000000;
+            break;
+        case "Staff":
+            gajiPokok = 5000000;
+            break;
+        default:
+            gajiPokok = 0;
+    }
+
+    // Tunjangan Jabatan
+    var tunjanganJabatan = 0.15 * gajiPokok;
+
+    // BPJS
+    var bpjs = 0.10 * gajiPokok;
+
+    // Tunjangan Keluarga
+    var tunjanganKeluarga = (status === "Menikah") ? 0.20 * gajiPokok : 0;
+
+    // Total Gaji
+    var totalGaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+    // Menampilkan Data pada Tabel
+    document.getElementById("gajiPokok").innerText = gajiPokok;
+    document.getElementById("tunjanganJabatan").innerText = tunjanganJabatan;
+    document.getElementById("bpjs").innerText = bpjs;
+    document.getElementById("tunjanganKeluarga").innerText = tunjanganKeluarga;
+    document.getElementById("totalGaji").innerText = totalGaji;
+    document.getElementById("totalGajiFoot").innerText = totalGaji;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tugas Jquery </title>
+    <link rel="stylesheet" href="Tugas5js.css">
+</head>
+<body>
+    <h2> Letakkan Kursor ke masing-masing kotak untuk melihat gambar </h2>
+    <div id="div1">
+        Hewan kucing
+        <audio id="sound1" src="suara/cat-meow-14536.mp3"></audio>
+    </div>
+    <div id="div2">
+        Hewan Ayam
+        <audio id="sound2" src="suara/rooster_crowing-7027.mp3"></audio>
+    </div>
+    <div id="div3">
+        Hewan jangkrik
+        <audio id="sound3" src="suara/ambience-night-field-cricket-01-7015 (mp3cut.net).mp3"></audio>
+    </div>
+
+
+    <script src="jquery-3.7.1.min.js"></script>
+    
+    <script>
+        $("document").ready(function(){
+            $("#div1").mouseover(function(){
+                $("#sound1")[0].play();
+                $(this).css({
+                    background: "url('https://main.mobile.doss.co.id/storage/uploads/2022/02/photo-1518791841217-8f162f1e1131.webp')"
+                });
+            });
+        });
+            $("#div1").mouseout(function(){
+                $("#sound1")[0].play();
+                $(this).css({
+                    background: "green"
+                });
+            });
+            $("document").ready(function(){
+            $("#div2").mouseover(function(){
+                $("#sound2")[0].play();
+                $(this).css({
+                    background: "url('https://cdn1-production-images-kly.akamaized.net/PLiwlDNW20SLXuSLHruKF0AFPi8=/1200x1200/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3421370/original/062776600_1617710503-WhatsApp_Image_2021-04-06_at_3.45.04_PM.jpeg')",
+                    "background-repeat": "no-repeat"
+                });
+            });
+        });
+                $("#div2").mouseout(function(){
+                    $("#sound2")[0].play();
+                $(this).css({
+                    background: "green"
+                });
+            });
+                $("document").ready(function(){
+            $("#div3").mouseover(function(){
+                $("#sound3")[0].play();
+                $(this).css({
+                    background: "url('https://cdn0-production-images-kly.akamaized.net/8GJSslZYZj552XNzBDgyYKx8Qvo=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/1633769/original/077791900_1498385469-172980011.jpg')"
+                });
+            });
+        });
+        $("#div3").mouseout(function(){
+            $("#sound3")[0].play();
+                $(this).css({
+                    background: "green"
+                });
+            });
+    </script>
+   
+    
+</body>
+</html>

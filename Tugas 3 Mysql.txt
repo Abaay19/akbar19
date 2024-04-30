@@ -1,0 +1,57 @@
+Nama : Muhammad Akbar Mustajabah
+KELOMPOK : 4
+
+Tugas 6.1
+3. Buat fungsi kategori_harga dengan parameter yang menerima inputan argument tipe data double dan mengembalikan tipe data string kategori harga berdasarkan: 
+●	0 – 500rb : murah
+●	500rb – 3 juta : sedang
+●	3jt – 10 juta : mahal 
+●	> 10 juta : sangat mahal
+
+Jawaban
+MariaDB [dbpos_sib6]>  DELIMITER $$
+MariaDB [dbpos_sib6]> CREATE FUNCTION kategori_harga(harga DOUBLE) RE
+TURNS VARCHAR(20) BEGIN
+    -> DECLARE kategori VARCHAR(20);
+    -> IF harga <+ 500000 THEN
+    -> SET kategori = 'murah';
+    -> ELSEIF harga > 500000 AND harga <= 3000000 THEN
+    -> SET kategori = 'sedang';
+    -> ELSEIF harga > 3000000 AND harga <= 10000000 THEN
+    -> SET kategori = 'mahal';
+    -> ELSE
+    -> SET kategori = 'sangat mahal';
+    -> END IF;
+    -> RETURN kategori;
+    -> END $$
+Query OK, 0 rows affected (0.012 sec)
+MariaDB [dbpos_sib6]>DELIMITER ;
+MariaDB [dbpos_sib6]> SELECT harga_jual, kategori_harga(harga_jual) A
+S kategori_harga FROM produk;
++------------+----------------+
+| harga_jual | kategori_harga |
++------------+----------------+
+|   54620800 | sangat mahal   |
+|    8047104 | mahal          |
+|    5061888 | mahal          |
+|     600000 | sedang         |
+|       3500 | murah          |
+|    9984000 | mahal          |
+|       2500 | murah          |
+|   11232000 | sangat mahal   |
+|   12480000 | sangat mahal   |
+|   17305600 | sangat mahal   |
+|      30000 | murah          |
+|      16224 | murah          |
+|    5408000 | mahal          |
+|   54620800 | sangat mahal   |
+|   54620800 | sangat mahal   |
+|   54620800 | sangat mahal   |
+|   54620800 | sangat mahal   |
+|   54620800 | sangat mahal   |
+|   54620800 | sangat mahal   |
+|   54620800 | sangat mahal   |
+|       5000 | murah          |
+|       5000 | murah          |
++------------+----------------+
+22 rows in set (0.015 sec)
